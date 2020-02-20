@@ -16,8 +16,8 @@ namespace LibraryHashCode
         {
             libraries = libraries
                 .OrderBy(x => x.Signup)
-                .ThenByDescending(x => x.Books.AvgScore)
-                .ThenByDescending(y => y.NumBooksPerDay).ToList();
+                .ThenByDescending(y => y.NumBooksPerDay)
+                .ThenByDescending(x => x.Books.AvgScore).ToList();
                 
                 ////.OrderByDescending(x =>
                 ////(x.Books.ScoreSum * WeightScore)
