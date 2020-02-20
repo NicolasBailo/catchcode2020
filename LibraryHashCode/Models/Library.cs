@@ -18,6 +18,10 @@ namespace LibraryHashCode.Models
         public int Days { get; set; }
         public int NumBooksPerDay { get; set; }
         public int Signup { get; set; }
-        
+
+        internal void AddUsage(IEnumerable<int> ids)
+        {
+            Books.AddUsage(ids);
+        }
     }
 }

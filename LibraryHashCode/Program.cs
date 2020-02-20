@@ -93,8 +93,6 @@ namespace LibraryHashCode
                 }
             }
 
-            libraries.ForEach(x => x.Books.OrderByScored());
-
             //////  EL MELME
             Logic_Mur.Process(ref libraries);
 
@@ -113,20 +111,26 @@ namespace LibraryHashCode
             using (StreamWriter sw = File.AppendText(fileNameResult))
             {
                 sw.WriteLine(libraries.Count());
-
+                var init = 0;
                 var count = 0;
                 foreach (var library in libraries)
                 {
+                    library.Books.OrderByScored();
+                    init += library.Signup;
+
                     var result1 = library.Id + " " + library.Books.Count();
                     sw.WriteLine(result1);
-
-                    var result2 = string.Join(" ", library.Books.Select(book => book.Id.ToString()));
+                    var ids=library.Books.Take((daysForScanning - init) * library.NumBooksPerDay)
+                        .Select(book => book.Id);
+                    var result2 = string.Join(" ", library.Books
+                        .Select(book => book.Id.ToString()));
                     
                     if ((libraries.Count() - 1) != count)
                         sw.WriteLine(result2);
                     else
                         sw.Write(result2);
 
+                    library.AddUsage(ids);
                     count++;
                 }
             }
