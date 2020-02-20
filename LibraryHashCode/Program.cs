@@ -10,11 +10,11 @@ namespace LibraryHashCode
     {
         static void Main(string[] args)
         {
-            ProcessFile("a_example");
-            ProcessFile("b_read_on");
-            ProcessFile("c_incunabula");
-            ProcessFile("d_tough_choices");
-            ProcessFile("e_so_many_books");
+            //ProcessFile("a_example");
+            //ProcessFile("b_read_on");
+            //ProcessFile("c_incunabula");
+            //ProcessFile("d_tough_choices");
+            //ProcessFile("e_so_many_books");
             ProcessFile("f_libraries_of_the_world");
         }
 
@@ -93,10 +93,9 @@ namespace LibraryHashCode
                 }
             }
 
-            libraries.ForEach(x => x.Books.OrderByScored());
 
             //////  EL MELME
-            Logic_Mur.Process(libraries);
+            libraries= Logic_Mur.Process(libraries);
 
 
 
@@ -120,7 +119,7 @@ namespace LibraryHashCode
                     var result1 = library.Id + " " + library.Books.Count();
                     sw.WriteLine(result1);
 
-                    var result2 = string.Join(" ", library.Books.Select(book => book.Id.ToString()));
+                    var result2 = string.Join(" ", library.Books.OrderByDescending(x=>x.Score).Select(book => book.Id.ToString()));
                     
                     if ((libraries.Count() - 1) != count)
                         sw.WriteLine(result2);
