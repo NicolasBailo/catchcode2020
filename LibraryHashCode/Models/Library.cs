@@ -11,12 +11,13 @@ namespace LibraryHashCode.Models
         public Library(int id)
         {
             Id = id;
-            Books = new List<Book>();
+            Books = new ListBook();
         }
 
-        public List<Book> Books { get; set; }
+        public ListBook Books { get; set; }
         public int Days { get; set; }
         public int NumBooksPerDay { get; set; }
         public int Signup { get; set; }
+        
     }
 }

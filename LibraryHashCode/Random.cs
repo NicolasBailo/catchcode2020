@@ -5,7 +5,7 @@ using System.Text;
 
 namespace LibraryHashCode
 {
-    public static class Random
+    public static class Random 
     {
         public static void Process(List<Library> libraries)
         {

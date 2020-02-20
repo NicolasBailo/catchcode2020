@@ -95,7 +95,7 @@ namespace LibraryHashCode
 
 
             //////  EL MELME
-            //Random.Process(libraries);
+            Logic_Mur.Process(libraries);
 
 
 
