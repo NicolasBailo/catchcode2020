@@ -83,7 +83,8 @@ namespace LibraryHashCode
                     {
                         for (int i = 0; i < items.Count(); i++)
                         {
-                            library.Books.Add(books[i]);
+                            var id = int.Parse(items[i]);
+                            library.Books.Add(books[id]);
                         }
 
                         boolLine = true;
@@ -118,7 +119,7 @@ namespace LibraryHashCode
                     var result1 = library.Id + " " + library.Books.Count();
                     sw.WriteLine(result1);
 
-                    var result2 = string.Join(" ", library.Books.Select(book => book.Score.ToString()));
+                    var result2 = string.Join(" ", library.Books.Select(book => book.Id.ToString()));
                     
                     if ((libraries.Count() - 1) != count)
                         sw.WriteLine(result2);
