@@ -21,7 +21,7 @@ namespace LibraryHashCode
 
         public void OrderByScored ()
         {
-            base.Sort((x, y) => x.Score.CompareTo(y.Score));
+            base.Sort((x, y) => y.Score.CompareTo(x.Score));
         }
     }
 }

@@ -93,6 +93,7 @@ namespace LibraryHashCode
                 }
             }
 
+            libraries.ForEach(x => x.Books.OrderByScored());
 
             //////  EL MELME
             Logic_Mur.Process(libraries);
