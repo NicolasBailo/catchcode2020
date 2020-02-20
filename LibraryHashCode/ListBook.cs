@@ -9,6 +9,7 @@ namespace LibraryHashCode
     public class ListBook: List<Book>
     {
         public float ScoreSum  =0.0f;
+        public float AvgScore => ScoreSum / base.Count;
         public List<int> ids = new List<int>();
         public new void Add(Book item)
         {
